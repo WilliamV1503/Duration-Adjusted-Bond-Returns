@@ -10,7 +10,7 @@ Instead of rolling down the Treasury curve by a duration-scaled time increment, 
 - Mergent and TRACE data span only from July 2002 to March 2024.
 - A numerical solver is used to estimate yields from dirty prices, but some derived yields appear to be unfeasible.
 - A simple time interpolation method is used to estimate dirty prices when data is missing.
-- The Svensson model is used to estimate yields for maturities under one year, despite known limitations during the sample period. See: [Federal Reserve critique](https://www.federalreserve.gov/pubs/feds/2006/200628/200628pap.pdf).
+- The Svensson model is used to estimate yields for maturities under one year, despite known limitations during the sample period. See: [FED Website Paper](https://www.federalreserve.gov/pubs/feds/2006/200628/200628pap.pdf).
 - Current return data is calculated at a monthly frequency, which may not capture higher-frequency dynamics.
 
 ## Goals
@@ -22,5 +22,5 @@ Instead of rolling down the Treasury curve by a duration-scaled time increment, 
 ## References
 
 - Binsbergen, J. H., Diamond, W. F., & Grotteria, M. (2021). *Risk-Free Interest Rates*. [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3914422)  
-- Gürkaynak, Sack, & Wright (2006). *The U.S. Treasury Yield Curve: 1961 to the Present*. [Federal Reserve](https://www.federalreserve.gov/pubs/feds/2006/200628/200628pap.pdf)
+- Gürkaynak, Sack, & Wright (2006). *The U.S. Treasury Yield Curve: 1961 to the Present*. [FED](https://www.federalreserve.gov/pubs/feds/2006/200628/200628pap.pdf)
 

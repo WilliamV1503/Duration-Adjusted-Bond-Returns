@@ -9,6 +9,7 @@ Instead of rolling down the Treasury curve by a duration-scaled time increment, 
 
 - Mergent and TRACE data span only from July 2002 to March 2024.
 - A numerical solver is used to estimate yields from dirty prices, but some derived yields appear to be unfeasible.
+- Current yield calculator only finds that for bullet bonds.
 - A simple time interpolation method is used to estimate dirty prices when data is missing.
 - The Svensson model is used to estimate yields for maturities under one year, despite known limitations during the sample period. See: [FED Website Paper](https://www.federalreserve.gov/pubs/feds/2006/200628/200628pap.pdf).
 - Current return data is calculated at a monthly frequency, which may not capture higher-frequency dynamics.
@@ -16,6 +17,7 @@ Instead of rolling down the Treasury curve by a duration-scaled time increment, 
 ## Goals
 
 - Implement a more accurate and robust zero-coupon Treasury curve estimator to replace the Svensson model.
+- Include a pricer for callable bonds using additional Mergent data.
 - Develop a more reliable method for interpolating missing bond prices.
 - Extend the methodology to produce duration-adjusted return data at daily frequency.
 

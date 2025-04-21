@@ -32,7 +32,7 @@ Although transaction data is at the day-level, the framework uses continuous dis
 - Create a daily-updated zero coupon corporate credit curve for each issuer to interpolate daily dirty prices.
 - Implement a zero-coupon Treasury curve model more robust under the 1 year to maturity range to replace the Svensson model. 
 - Include a pricer for callable bonds using additional Mergent data.
-- Extend the framework to allow for intraday pricing and curve updates at a given time bin level
+- Extend the framework to allow for intraday pricing and curve updates at a given time bin level.
 
 ## References
 - van Binsbergen, Nozawa, & Schwert (2023). *Duration-Based Valuation of Corporate Bonds*. [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3914422)

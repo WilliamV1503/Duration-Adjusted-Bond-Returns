@@ -3,7 +3,7 @@
 ## Corporate Bond Duration-Matched Treasury Pricing Notebook
 This notebook calculates corporate bond prices and corresponding duration-matched Treasury prices. The sample is constructed from merging transaction data from TRACE with bond issue data from Mergent (FISD). The sample of transactions spans from July 2002 - March 2024. 
 
-The framework presented in the notebook currently supports corporate bullet bonds satisfying the filtering criteria suggested by van Binsbergen, Nozawa, & Schwert (2023). The methodology proposed by van Binsbergen & Schwert (2021) for pricing duration-matched synthetic Treasuries is also implemented. The Nelson-Siegel-Svensson instantaneous forward zero-coupon yield curve model and parameters published by Gürkaynak, Sack, & Wright (2006) are used to discount the cash flows for the synthetic Treasuries. 
+The framework presented in the notebook currently supports corporate bullet bonds satisfying the filtering criteria suggested by van Binsbergen, Nozawa, & Schwert (2023). The methodology proposed by van Binsbergen & Schwert (2021) for pricing duration-matched synthetic Treasuries is also implemented. The Nelson-Siegel-Svensson instantaneous forward zero-coupon yield curve model and parameters published by Gürkaynak, Sack, & Wright (2006) are used to discount the cash flows for the synthetic Treasuries. The ISDA 30U/360 US day count convention is used for corporate bonds and the ISDA Actual/Actual day count convention is used for synthetic Treasuries. 
 
 Although transaction data is at the day-level, the framework uses continuous discounting to accomodate potential intraday implementations. Initially, a continuously compounded interest accrual method was used. However, a linear (street convention) interest accrual function best reduced the error between dirty prices (implied by TRACE reported yields or estimated from clean price + accrued interest) and yields (reported by TRACE or extracted from estimated dirty prices). The best errors were as follows (analysis also included in notebook):
 - Dirty Price Mean Absolute Error: $0.88
@@ -11,7 +11,7 @@ Although transaction data is at the day-level, the framework uses continuous dis
 - Yield Mean Absolute Error: 27.00 bps
 - Yield Median Absolute Error: 0.35 bps
 
-The ISDA 30U/360 US day count convention is used for corporate bonds and the ISDA Actual/Actual day count convention is used for synthetic Treasuries.
+2% of the sample had absolute yield errors above the mean absolute yield error, and 6% of the sample had absolute dirty price errors above the mean absolute dirty price error. The extreme dirty prices (ex: $3) and yields (ex: 99999%) from the original sample were among the problematic data points. Among the companies with the above average yield or dirty price absolute errors, the top 10 of each included Albertsons Inc., Anheuser Busch Cos Inc., Weingarten Rlty Invs, Delta Airlines, Sara Lee Corp, and Tribune Co New. These are notable since they are overrepresented among the problematic data points but not in the original sample, unlike companies such as International Lease Fin Corp or Disney Walt Co which are overrepresented among both the original sample and the problematic sample. Aside from potential TRACE reporting errors or ignored special characteristics of these bond issues within the framework, no discernable reason for this error skew has been determined.
 
 ### Set Up:
 1) Download the entire TRACE Enhanced Clean transaction data and Mergent (FISD) Bond Issue data CSV files from WRDS.
